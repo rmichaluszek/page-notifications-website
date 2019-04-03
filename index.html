@@ -16,7 +16,7 @@
         <div class="wrapper">
             <div id="logo">Page-Notifications</div>
             <ul id="topbar-menu">
-                <li><a class="special-link" href="https://github.com/rafalm99/page-notifications">GitHub</a></li>
+                <a class="special-link" href="https://github.com/rafalm99/page-notifications">GitHub</a>
             </ul>
         </div>
     </div>
@@ -39,13 +39,18 @@
     <div id="download">
         <div class="wrapper">
             <h2>Download</h2>
-            <p>Download the latest version <b>(1.0.1 current)</b> from below, or visit my <a href="https://github.com/rafalm99/page-notifications"><b>GitHub</b>.</a></p>
-            <a target="_blank" href="https://github.com/rafalm99/page-notifications/releases/download/1.0.1/page-notifications-1.0.1.zip"><button>Download .zip</button></a>
+            <p>Download the latest version <b>(1.0.2 current)</b> from below, or visit my <a href="https://github.com/rafalm99/page-notifications"><b>GitHub</b>.</a></p>
+            <a target="_blank" href="https://github.com/rafalm99/page-notifications/releases/download/1.0.2/page-notifications-1.0.2.zip"><button>Download .zip</button></a>
+            <a target="_blank" href="https://github.com/rafalm99/page-notifications/releases/download/1.0.2/page-notifications-1.0.2.rar"><button>Download .rar</button></a>
             <h4>Patch notes</h4>
             <ul>
                 <li>Added dark theme</li>
                 <li>Added time-specified notifications</li>
                 <li>Fixed headers colors</li>
+                <li>Changed <b>info</b> and <b>warning</b> icons</li>
+                <li>Added manual width setting and mobile devices responsivility</li>
+                <li>Changed timer animation from ease-out to linear</li>
+                <li>Added bigger padding to <b>close button</b> and prevented user from highlighting it</li>
             </ul>
             <hr>
         </div>
@@ -53,16 +58,131 @@
     <div id="usage">
             <div class="wrapper">
                 <h2>Usage</h2>
-                <p>It's really simple. <br>
-                First, include <b>page-notifications.js</b> and <b>page-notifications.css</b> to your webpage.</p>
+                It's really simple. <br>
+                First, include <b>page-notifications.js</b> and <b>page-notifications.css</b> to your webpage.
+                <div class="code-section">
 
-                ... to do later
+                    <div class="gray">&lt</div><div
+                    class="blue">link rel=</div><div 
+                    class="light-blue">"stylesheet"</div>
+                    <div 
+                    class="blue"> href=</div><div 
+                    class="light-blue">"page-notifications.css"</div><div 
+                    class="gray">&gt</div></br>
+
+                    <div class="gray">&lt</div><div
+                    class="blue">script src=</div><div 
+                    class="light-blue"> "page-notifications.js" </div><div 
+                    class="gray">&gt</div>
+
+                </div>
+                Then initialize notifications.
+                <div class="code-section">
+
+                    <div class="light-blue">var</div>
+                    <div
+                    class="gray">notifications</div>
+                    <div 
+                    class="light-blue"> = new</div>
+                    <div 
+                    class="blue">PageNotifications();</div></br>
+
+                    <div class="comment">//or with arguments (see documentation for all)</div>
+                    
+                    <div class="light-blue">var</div>
+                    <div
+                    class="gray">notifications</div>
+                    <div 
+                    class="light-blue"> = new</div>
+                    <div 
+                    class="blue">PageNotifications</div><div 
+                    class="gray">({"theme"</div><div
+                    class="light-blue">:</div><div 
+                    class="gray">"dark","parentDiv"</div><div
+                    class="light-blue">:</div><div 
+                    class="gray">"divId"});</div></br>
+
+                </div>
+                And finally you can push notifications.
+                <div class="code-section">
+
+                    <div class="gray">notifications.</div><div
+                    class="blue">push</div><div 
+                    class="gray">({"Title","Content","info",</div><div 
+                    class="blue">false</div><div
+                    class="gray">);</div></br>
+
+                </div>
             </div>
         </div>
     <div id="docs">
         <div class="wrapper">
             <a href="#docs"><h2>Documentation</h2></a>
-            ... same to do later </br></br>
+            <ul>
+                <li>
+                    <b>constructor</b>( arguments: <i>JSObject</i> )
+                    <div class="undertext">Initializes notifications with given arguments.</div>
+                    <ul>
+                        <li>
+                            <b>arguments</b>: { 'theme' : <i>String</i> , 'parentDiv' : <i>String</i> , 'width' : <i>Integer/String</i> } <div class="undertext"> JavaScript object of possible arguments</div>
+                            <ul>
+                                <li><b>theme</b>: "light" / "dark"</li>
+                                <li><b>parentDiv</b>: id of parent element</li>
+                                <li><b>width</b>: notifications width measured in pixels / <i>"fill"</i> to match the parent element width</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br>
+                    Example:
+                    <div class="code-section">
+                            <div class="light-blue">var</div>
+                            <div
+                            class="gray">notifications</div>
+                            <div 
+                            class="light-blue"> = new</div>
+                            <div 
+                            class="blue">PageNotifications</div><div 
+                            class="gray">({"theme"</div><div
+                            class="light-blue">:</div><div 
+                            class="gray">"dark","parentDiv"</div><div
+                            class="light-blue">:</div><div 
+                            class="gray">"divId"});</div></br>
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <b>push</b>( title: <i>String</i> , content: <i>String</i> , type: <i>String</i> , duration: <i>Integer/<b>false</b></i> )
+                    <div class="undertext">Adds a new notification and shows it instantly.</div>
+                    <ul>
+                        <li>
+                            <b>title</b>: title of the notification
+                        </li>
+                        <li>
+                            <b>content</b>: content of the notification
+                        </li>
+                        <li>
+                            <b>type</b>: "info" / "success" / "warning" / "error"
+                        </li>
+                        <li>
+                            <b>duration</b>: notification's duration measured in miliseconds / <i>false</i> to disable timer
+                        </li>
+                    </ul>
+                    <br>
+                    Example:
+                    <div class="code-section">
+                            <div class="gray">notifications.</div><div
+                            class="blue">push</div><div 
+                            class="gray">({"Some title","Content of the notification","warning",</div><div 
+                            class="blue">3000</div><div
+                            class="gray">);</div></br>
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <b>closeAll</b>( )
+                    <div class="undertext">Closes all shown instances of notifications.</div>
+                </li>
+            </ul>
         </div>
     </div>
     <div id="footer">

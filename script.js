@@ -1,4 +1,4 @@
-var notifications = new PageNotifications();
+var notifications = new PageNotifications({width: 400});
 
 function showInfoNotification() {
     notifications.push("Info","Information notification.","info",false);
@@ -16,7 +16,7 @@ function showLongNotification() {
     notifications.push("Long Notification","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.","info",false);
 }
 function showTimedNotification() {
-    notifications.push("5 Secs","Timed notification for only 5 seconds.","success",5000);
+    notifications.push("5 Secs","Timed notification for only 5 seconds.","success",8000);
 }
 function closeAllNotifications() {
     notifications.closeAll();
